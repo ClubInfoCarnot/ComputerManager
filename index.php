@@ -17,6 +17,8 @@ foreach (parse_ini_file('.env') as $key => $value) {
 </head>
 <body>
 
+    <?php include("pages/nav.php") ?>
+
     <h1>
         <?php
         include 'backend\database\Migration.php';
