@@ -21,8 +21,10 @@ foreach (parse_ini_file('.env') as $key => $value) {
 
     <h1>
         <?php
-        include 'backend\database\Migration.php';
-        echo createMigration();
+        include 'backend\computer\Computer.php';
+        $computer = new Computer();
+        $computer->getComputer('1234');
+        echo $computer->brand;
         ?>
     <h1>
     

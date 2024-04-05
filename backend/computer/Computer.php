@@ -31,5 +31,4 @@ class Computer
             $this->macAddress = $row['mac-address'];
         }
     }
-
 }
