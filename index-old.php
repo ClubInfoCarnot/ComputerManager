@@ -19,31 +19,33 @@ date_default_timezone_set($_ENV['TIMEZONE']);
     <link rel="stylesheet" href="public/css/style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <title>Computer Manager</title>
 </head>
 <body>
 
-<?php include("pages/nav.php") ?>
+    <?php include("pages/nav.php") ?>
 
-<h1>
+    <h1>
+        <?php
+        include 'backend/computer/Computer.php';
+        $computer = new Computer();
+        $computer->getComputerBySerialNumber("1234");
+        echo $computer->entryDate;
+        ?>
+    </h1>
+
     <?php
-    include 'backend/computer/Computer.php';
+    if (!class_exists("Computer")) {
+        include 'backend/computer/Computer.php';
+    }
+    use chillerlan\QRCode\QRCode;
     $computer = new Computer();
     $computer->getComputerBySerialNumber("1234");
-    echo $computer->entryDate;
+    $qrcode = new QRCode;
+    $render = $qrcode->render($computer->uuid);
+    echo '<img src='.$render.'>';
     ?>
-</h1>
-<?php
-if (!class_exists("Computer")) {
-    include 'backend/computer/Computer.php';
-}
-use chillerlan\QRCode\QRCode;
-$computer = new Computer();
-$computer->getComputerBySerialNumber("1234");
-$qrcode = new QRCode;
-$render = $qrcode->render($computer->uuid);
-echo '<img src='.$render.'>';
-?>
 
 </body>
 </html>
