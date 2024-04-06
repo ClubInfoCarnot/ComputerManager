@@ -7,7 +7,7 @@ if (!function_exists('getCon')) {
 
 class Computer
 {
-    public $dbData = array();
+    private $dbData = array();
     public $uuid = "";
     public $brand = "";
     public $model = "";

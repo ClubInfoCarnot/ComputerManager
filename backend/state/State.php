@@ -6,7 +6,7 @@ if (!function_exists('getCon')) {
 
 class State
 {
-    public $dbData = array();
+    private $dbData = array();
     public $id = 0;
     public $visualName = "";
     public $deleted = "";
