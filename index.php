@@ -24,8 +24,10 @@ Sentry\init(['dsn' => $_ENV['SENTRY_DSN']]);
 
     <h1>
         <?php
-        include("backend/stats/Stats.php");
-        echo "Number of computers: " . getNumberOfComputer();
+        include 'backend/computer/Computer.php';
+        $computer = new Computer();
+        $computer->getComputerBySerialNumber("1234");
+        echo $computer->type->visualName;
         ?>
     <h1>
     
