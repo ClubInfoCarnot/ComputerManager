@@ -21,10 +21,8 @@ foreach (parse_ini_file('.env') as $key => $value) {
 
     <h1>
         <?php
-        include 'backend/computer/Computer.php';
-        $computer = new Computer();
-        $computer->getComputer("1234");
-        echo $computer->state->visualName;
+        include("backend/stats/Stats.php");
+        echo "Number of computers: " . getNumberOfComputer();
         ?>
     <h1>
     
