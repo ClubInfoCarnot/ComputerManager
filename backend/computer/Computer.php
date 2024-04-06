@@ -10,6 +10,8 @@ if (!class_exists("ComputerType")) {
     include 'backend/computer/ComputerType.php';
 }
 
+use chillerlan\QRCode\QRCode;
+
 class Computer
 {
     private $dbData = array();
@@ -24,6 +26,7 @@ class Computer
     public ?ComputerType $type = null;
     public $entryDate = "";
 
+    public $qrCode = "";
 
     function getComputerBySerialNumber($serialNumber, $limit = 1000) {
         $pdo = getCon();
@@ -55,6 +58,7 @@ class Computer
             $type->getComputerType($row['type']);
             $this->type = $type;
             $this->entryDate = date("d-m-Y", intval($row['entry-date']));
+
         }
     }
 }
