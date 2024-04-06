@@ -1,5 +1,10 @@
 <?php
 
+include 'backend/state/State.php';
+if (!function_exists('getCon')) {
+    include 'backend/database/Connection.php';
+}
+
 class Computer
 {
     public $dbData = array();
@@ -8,9 +13,9 @@ class Computer
     public $model = "";
     public $serialNumber = "";
     public $macAddress = "";
+    public ?State $state = null;
 
     function getComputer($serialNumber, $limit = 1000) {
-        include 'backend/database/Connection.php';
         $pdo = getCon();
         $pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
         $result = $pdo->query("SELECT * FROM `computer-inventory` WHERE `serial-number`='$serialNumber' LIMIT $limit");
@@ -25,6 +30,9 @@ class Computer
             $this->model = $row['model'];
             $this->serialNumber = $row['serial-number'];
             $this->macAddress = $row['mac-address'];
+            $state = new State();
+            $state->getState($row['state']);
+            $this->state = $state;
         }
     }
 }

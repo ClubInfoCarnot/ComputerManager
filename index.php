@@ -21,10 +21,10 @@ foreach (parse_ini_file('.env') as $key => $value) {
 
     <h1>
         <?php
-        include 'backend\computer\Computer.php';
+        include 'backend/computer/Computer.php';
         $computer = new Computer();
-        $computer->getComputer('1234');
-        echo $computer->brand;
+        $computer->getComputer("1234");
+        echo $computer->state->visualName;
         ?>
     <h1>
     
