@@ -1,0 +1,8 @@
+{
+    "name": "hulkhogan6262/computer-manager",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "sentry/sentry": "^4.6"
+    }
+}
