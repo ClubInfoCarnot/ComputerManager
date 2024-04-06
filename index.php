@@ -6,6 +6,8 @@ foreach (parse_ini_file('.env') as $key => $value) {
     $_ENV[$key] = $value;
 }
 Sentry\init(['dsn' => $_ENV['SENTRY_DSN']]);
+// Set timezone
+date_default_timezone_set($_ENV['TIMEZONE']);
 ?>
 
 <html>
@@ -27,9 +29,20 @@ Sentry\init(['dsn' => $_ENV['SENTRY_DSN']]);
         include 'backend/computer/Computer.php';
         $computer = new Computer();
         $computer->getComputerBySerialNumber("1234");
-        echo $computer->type->visualName;
+        echo $computer->entryDate;
         ?>
-    <h1>
+    </h1>
+    <?php
+    if (!class_exists("Computer")) {
+        include 'backend/computer/Computer.php';
+    }
+    use chillerlan\QRCode\QRCode;
+    $computer = new Computer();
+    $computer->getComputerBySerialNumber("1234");
+    $qrcode = new QRCode;
+    $render = $qrcode->render($computer->uuid);
+    echo '<img src='.$render.'>';
+    ?>
     
 </body>
 </html>
