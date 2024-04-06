@@ -1,0 +1,60 @@
+.computer-info-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.computer-info-h2 {
+    text-decoration: underline;
+}
+
+.qr-text {
+    text-decoration: underline;
+}
+
+.computer-info-table {
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid grey;
+    padding: 8px 10px;
+}
+
+th {
+    text-align: left;
+}
+
+tr:nth-of-type(even) {
+    background-color: #eee;
+}
+
+th[scope='col'] {
+    background: #444;
+    color: white;
+}
+
+td {
+    text-align: center;
+    justify-content: center;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.waiting {
+    color: #f00;
+    font-weight: bolder;
+}
+
+.in-progress {
+    color: #fa0;
+    font-weight: bolder;
+}
+
+.done {
+    color: #0a0;
+    font-weight: bolder;
+}
