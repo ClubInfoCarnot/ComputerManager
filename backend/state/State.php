@@ -1,7 +1,7 @@
 <?php
 
 if (!function_exists('getCon')) {
-    include 'backend/database/Connection.php';
+    include '../backend/database/Connection.php';
 }
 
 class State

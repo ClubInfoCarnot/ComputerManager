@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="../css/nav.css">
 <section class="nav-section">
     <div class="nav-left-div">
         <h2 class="nav-h2">Computer Manager</h2>

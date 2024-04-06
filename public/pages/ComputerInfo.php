@@ -1,3 +1,14 @@
+<?php
+if (!class_exists("Computer")) {
+    include '../backend/computer/Computer.php';
+}
+if (!class_exists("State")) {
+    include '../backend/state/State.php';
+}
+$computer = new Computer();
+$computer->getComputerByUUID($_GET['uuid']);
+?>
+
 <link rel="stylesheet" href="css/computer_info.css">
 <section class="computer-info-section">
     <h2 class="computer-info-h2">Computer Informations:</h2>
@@ -9,35 +20,48 @@
             </tr>
             <tr>
                 <th scope="row">Database UUID</th>
-                <td>UUID-UUID-UUID-UUID-UUID</td>
+                <td><?php
+                    echo $computer->uuid;
+                    ?></td>
             </tr>
             <tr>
                 <th scope="row">Brand</th>
-                <td>NewSoftBrandExemple</td>
+                <td><?php
+                    echo $computer->brand;
+                    ?></td>
+                </td>
             </tr>
             <tr>
                 <th scope="row">Model</th>
-                <td>MyFavoriteModel</td>
+                <td><?php
+                    echo $computer->model;
+                    ?></td>
             </tr>
             <tr>
                 <th scope="row">Serial Number</th>
-                <td>687319613216123401260</td>
+                <td><?php
+                    echo $computer->serialNumber;
+                    ?></td>
             </tr>
             <tr>
                 <th scope="row">Mac Address</th>
-                <td>6E:DA:78:4S:GL</td>
+                <td><?php
+                    echo $computer->macAddress;
+                    ?></td>
             </tr>
             <tr>
                 <th scope="row">Arrival</th>
-                <td>JJ-MM-AAAA</td>
+                <td><?php
+                    echo $computer->entryDate;
+                    ?></td>
             </tr>
             <tr>
                 <th scope="row">Leaving</th>
-                <td>JJ-MM-AAAA</td>
+                <td>Not implemented</td>
             </tr>
             <tr>
                 <th scope="row">Recipient</th>
-                <td>ARandomSchool</td>
+                <td>Not implemented</td>
             </tr>
             <tr>
                 <th scope="row">State</th>
