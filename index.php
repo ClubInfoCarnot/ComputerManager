@@ -30,6 +30,8 @@ Sentry\init(['dsn' => $_ENV['SENTRY_DSN']]);
         echo $computer->type->visualName;
         ?>
     <h1>
+
+    <?php include("pages/computer_info.php") ?>
     
 </body>
 </html>
