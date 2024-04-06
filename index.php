@@ -5,9 +5,7 @@ require __DIR__ . '/vendor/autoload.php';
 foreach (parse_ini_file('.env') as $key => $value) {
     $_ENV[$key] = $value;
 }
-Sentry\init([
-        'dsn' => $_ENV['SENTRY_DSN'],
-]);
+Sentry\init(['dsn' => $_ENV['SENTRY_DSN']]);
 ?>
 
 <html>
