@@ -64,10 +64,13 @@ class Computer
     }
 
     function setState(State $state) {
-        $this->state = $state;
         $pdo = getCon();
         $pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
-        $pdo->query("UPDATE `computer-inventory` SET `state`='$state->id' WHERE `uuid`='$this->uuid'");
+        $pdo->beginTransaction();
+        $stmt = $pdo->prepare("UPDATE `computer-inventory` SET `state`=? WHERE `uuid`=?");
+        $stmt->execute(array($state->id, $this->uuid));
         $pdo->commit();
+        $this->state = $state;
+        echo "OKK";
     }
 }
