@@ -30,105 +30,45 @@
                 <th scope="col">Destinataire</th>
                 <th scope="col">Status</th>
             </tr>
-            <tr>
-                <th scope="row">987654321</th>
-                <td>UUID-UUID-UUID-UUID-UUID</td>
-                <td>NewSoftBrandExemple</td>
-                <td>MyFavoriteModel</td>
-                <td>6E:DA:78:4S:GL</td>
-                <td>JJ-MM-AAAA</td>
-                <td>JJ-MM-AAAA</td>
-                <td>ARandomSchool</td>
-                <td class="status"><p class="done">Done<p></td>
-            </tr>
-            <tr>
-                <th scope="row">987654321</th>
-                <td>UUID-UUID-UUID-UUID-UUID</td>
-                <td>NewSoftBrandExemple</td>
-                <td>MyFavoriteModel</td>
-                <td>6E:DA:78:4S:GL</td>
-                <td>JJ-MM-AAAA</td>
-                <td>JJ-MM-AAAA</td>
-                <td>ARandomSchool</td>
-                <td class="status"><p class="waiting">Waiting<p></td>
-            </tr>
-            <tr>
-                <th scope="row">987654321</th>
-                <td>UUID-UUID-UUID-UUID-UUID</td>
-                <td>NewSoftBrandExemple</td>
-                <td>MyFavoriteModel</td>
-                <td>6E:DA:78:4S:GL</td>
-                <td>JJ-MM-AAAA</td>
-                <td>JJ-MM-AAAA</td>
-                <td>ARandomSchool</td>
-                <td class="status"><p class="in-progress">In progress<p></td>
-            </tr>
-            <tr>
-                <th scope="row">987654321</th>
-                <td>UUID-UUID-UUID-UUID-UUID</td>
-                <td>NewSoftBrandExemple</td>
-                <td>MyFavoriteModel</td>
-                <td>6E:DA:78:4S:GL</td>
-                <td>JJ-MM-AAAA</td>
-                <td>JJ-MM-AAAA</td>
-                <td>ARandomSchool</td>
-                <td class="status"><p class="waiting">Waiting<p></td>
-            </tr>
-            <tr>
-                <th scope="row">987654321</th>
-                <td>UUID-UUID-UUID-UUID-UUID</td>
-                <td>NewSoftBrandExemple</td>
-                <td>MyFavoriteModel</td>
-                <td>6E:DA:78:4S:GL</td>
-                <td>JJ-MM-AAAA</td>
-                <td>JJ-MM-AAAA</td>
-                <td>ARandomSchool</td>
-                <td class="status"><p class="done">Done<p></td>
-            </tr>
-            <tr>
-                <th scope="row">987654321</th>
-                <td>UUID-UUID-UUID-UUID-UUID</td>
-                <td>NewSoftBrandExemple</td>
-                <td>MyFavoriteModel</td>
-                <td>6E:DA:78:4S:GL</td>
-                <td>JJ-MM-AAAA</td>
-                <td>JJ-MM-AAAA</td>
-                <td>ARandomSchool</td>
-                <td class="status"><p class="in-progress">In progress<p></td>
-            </tr>
-            <tr>
-                <th scope="row">987654321</th>
-                <td>UUID-UUID-UUID-UUID-UUID</td>
-                <td>NewSoftBrandExemple</td>
-                <td>MyFavoriteModel</td>
-                <td>6E:DA:78:4S:GL</td>
-                <td>JJ-MM-AAAA</td>
-                <td>JJ-MM-AAAA</td>
-                <td>ARandomSchool</td>
-                <td class="status"><p class="waiting">Waiting<p></td>
-            </tr>
-            <tr>
-                <th scope="row">987654321</th>
-                <td>UUID-UUID-UUID-UUID-UUID</td>
-                <td>NewSoftBrandExemple</td>
-                <td>MyFavoriteModel</td>
-                <td>6E:DA:78:4S:GL</td>
-                <td>JJ-MM-AAAA</td>
-                <td>JJ-MM-AAAA</td>
-                <td>ARandomSchool</td>
-                <td class="status"><p class="in-progress">In progress<p></td>
-            </tr>
-            <tr>
-                <th scope="row">987654321</th>
-                <td>UUID-UUID-UUID-UUID-UUID</td>
-                <td>NewSoftBrandExemple</td>
-                <td>MyFavoriteModel</td>
-                <td>6E:DA:78:4S:GL</td>
-                <td>JJ-MM-AAAA</td>
-                <td>JJ-MM-AAAA</td>
-                <td>ARandomSchool</td>
-                <td class="status"><p class="done">Done<p></td>
-            </tr>
+            <?php
+            if (!function_exists('getCon')) {
+                include '../backend/database/Connection.php';
+            }
+            if (!class_exists("Computer")) {
+                include '../backend/computer/Computer.php';
+            }
+
+            $pdo = getCon();
+            $pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+            $uuids = $pdo->query("SELECT `uuid` FROM `computer-inventory`");
+            
+            foreach ($uuids as $uuid) {
+                $computer = new Computer();
+                $computer->getComputerByUUID($uuid[0]);
+                $state = null;
+
+                if ($computer->state->visualName == "Fait") {
+                    $state = "<p class=\"done\">Fait<p></td>";
+                } else if ($computer->state->visualName == "Nettoyage") {
+                    $state = "<p class=\"in-progress\">Nettoyage<p></td>";
+                } else {
+                    $state = "<p class=\"waiting\">En attente<p></td>";
+                }
+
+                echo "<tr>
+                        <th scope=\"row\">".$computer->serialNumber."</th>
+                        <td>".$uuid[0]."</td>
+                        <td>".$computer->brand."</td>
+                        <td>".$computer->model."</td>
+                        <td>".$computer->macAddress."</td>
+                        <td>".$computer->entryDate."</td>
+                        <td>JJ-MM-AAAA</td>
+                        <td>Pas implémenté</td>
+                        <td class=\"status\"><p class=\"done\">Done<p></td>
+                    </tr>";
+            }
+            
+            ?>
         </table>
     </section>
     

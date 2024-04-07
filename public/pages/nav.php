@@ -7,7 +7,7 @@
                 <li><a href="/home">Accueil</a></li>
             </ul>
             <ul>
-                <li><a href="/computer">Ordinateurs</a></li>
+                <li><a href="/computers">Ordinateurs</a></li>
             </ul>
             <ul>
                 <li><a href="/database">BDD</a></li>
