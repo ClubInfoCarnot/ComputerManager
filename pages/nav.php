@@ -6,7 +6,7 @@
     <div class="nav-right-div">
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="/">Home</a></li>
             </ul>
             <ul>
                 <li><a href="pages/computers.php">Computers</a></li>

@@ -5,43 +5,43 @@
         <table class="computer-info-table">
             <tr>
                 <th scope="col">Specifications</th>
-                <th scope="col" style="text-align: center;">Values</th>
+                <th scope="col" style="text-align: center;" onclick="alert('Good !')">Values</th>
             </tr>
             <tr>
                 <th scope="row">Database UUID</th>
-                <td>UUID-UUID-UUID-UUID-UUID</td>
+                <td id="uuid">UUID-UUID-UUID-UUID-UUID</td>
             </tr>
             <tr>
                 <th scope="row">Brand</th>
-                <td>NewSoftBrandExemple</td>
+                <td id="brand">NewSoftBrandExemple</td>
             </tr>
             <tr>
                 <th scope="row">Model</th>
-                <td>MyFavoriteModel</td>
+                <td id="model">MyFavoriteModel</td>
             </tr>
             <tr>
                 <th scope="row">Serial Number</th>
-                <td>687319613216123401260</td>
+                <td id="serial-number">687319613216123401260</td>
             </tr>
             <tr>
                 <th scope="row">Mac Address</th>
-                <td>6E:DA:78:4S:GL</td>
+                <td id="mac-addr">6E:DA:78:4S:GL</td>
             </tr>
             <tr>
                 <th scope="row">Arrival</th>
-                <td>JJ-MM-AAAA</td>
+                <td id="arrival">JJ-MM-AAAA</td>
             </tr>
-            <tr>
+            <tr >
                 <th scope="row">Leaving</th>
-                <td>JJ-MM-AAAA</td>
+                <td id="leaving">JJ-MM-AAAA</td>
             </tr>
             <tr>
                 <th scope="row">Recipient</th>
-                <td>ARandomSchool</td>
+                <td id="recipient">ARandomSchool</td>
             </tr>
             <tr>
                 <th scope="row">State</th>
-                <td class="status"><p class="done">Done<p></td>
+                <td class="status" id="status"><p class="done">Done<p></td>
             </tr>
         </table>
         <p class="qr-text">Computer's QRCode:</p>
@@ -49,3 +49,5 @@
         <a href="img/qr-code.png" download>Download the QRCode</a>
     </div>
 </section>
+
+<script src="js/modificate_computer_infos.js"></script>

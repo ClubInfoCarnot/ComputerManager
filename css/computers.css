@@ -1,21 +1,28 @@
-.computer-info-content {
+.research {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
-.computer-info-h2 {
-    text-decoration: underline;
+.research-h2 {
+    width: 30%;
+    text-align: center;
 }
 
-.qr-text {
-    text-decoration: underline;
-    font-weight: bold;
-    font-size: 30px;
+.research-div {
+    width: 70%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
 }
 
-.computer-info-table {
+.research-input {
+    width: 70%;
+    padding: 7px;
+    margin: 7px;
+}
+
+.computer-result-table {
     width: 100%;
 }
 
@@ -35,6 +42,11 @@ tr:nth-of-type(even) {
 th[scope='col'] {
     background: #444;
     color: white;
+}
+
+th[scope='row'] {
+    background: #aaa;
+    color: #111;
 }
 
 td {
