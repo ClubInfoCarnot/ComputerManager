@@ -16,6 +16,9 @@ $request = $_SERVER["REQUEST_URI"];
 if (strpos($request, "/computer") === 0) {
     include 'pages/computers.php';
     echo exec('pages/computers.php');
+} else if (strpos($request, "/computer-info") === 0) {
+    include 'pages/ComputerInfo.php';
+    echo exec('pages/ComputerInfo.php');
 } else if (strpos($request, "/css") === 0) {
     include 'css/style.css';
     include 'css/nav.css';
