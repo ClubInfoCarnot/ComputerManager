@@ -57,7 +57,9 @@ $computer->getComputerByUUID($_GET['uuid']);
             </tr>
             <tr >
                 <th scope="row">Départ</th>
-                <td>Not implemented</td>
+                <td><?php
+                    echo $computer->exitDate;
+                    ?></td>
             </tr>
             <tr>
                 <th scope="row">Destinataire</th>

@@ -1,7 +1,7 @@
 <?php
 
 if (!function_exists('getCon')) {
-    include 'backend/database/Connection.php';
+    include '../backend/database/Connection.php';
 }
 
 class ComputerType
@@ -24,5 +24,18 @@ class ComputerType
             $this->id = $row['id'];
             $this->visualName = $row['visual-name'];
         }
+    }
+
+    function createComputerType($visualName) {
+        $pdo = getCon();
+        $pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+        $pdo->beginTransaction();
+        $stmt = $pdo->prepare("INSERT INTO `computer-type` (`visual-name`) VALUES (?)");
+        $stmt->execute(array($visualName));
+        $pdo->commit();
+        $test = $pdo->query("SELECT LAST_INSERT_ID() AS id FROM `computer-type`");
+        $this->id = $test->fetch()['id'];
+        $this->visualName = $visualName;
+        echo $this->id;
     }
 }

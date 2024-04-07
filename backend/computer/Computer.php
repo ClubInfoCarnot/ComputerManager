@@ -25,6 +25,7 @@ class Computer
 
     public ?ComputerType $type = null;
     public $entryDate = "";
+    public $exitDate = "";
 
     public $qrCode = "";
 
@@ -58,7 +59,15 @@ class Computer
             $type->getComputerType($row['type']);
             $this->type = $type;
             $this->entryDate = date("d-m-Y", intval($row['entry-date']));
-
+            $this->exitDate = date("d-m-Y", intval($row['leave-date']));
         }
+    }
+
+    function setState(State $state) {
+        $this->state = $state;
+        $pdo = getCon();
+        $pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+        $pdo->query("UPDATE `computer-inventory` SET `state`='$state->id' WHERE `uuid`='$this->uuid'");
+        $pdo->commit();
     }
 }

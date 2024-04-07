@@ -27,4 +27,11 @@ class State
             $this->deleted = $row['deleted'];
         }
     }
+
+    function deleteState() {
+        $pdo = getCon();
+        $pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
+        $result = $pdo->query("DELETE FROM `state` WHERE `id`='$this->id'");
+
+    }
 }
