@@ -4,16 +4,16 @@
     <div class="nav-right-div">
         <nav>
             <ul>
-                <li><a href="/">Home</a></li>
+                <li><a href="/home">Accueil</a></li>
             </ul>
             <ul>
-                <li><a href="/computer">Computers</a></li>
+                <li><a href="/computer">Ordinateurs</a></li>
             </ul>
             <ul>
-                <li><a href="#">Database</a></li>
+                <li><a href="/database">BDD</a></li>
             </ul>
             <ul>
-                <li><a href="#">Timetable</a></li>
+                <li><a href="/timetable">Évènements à venir</a></li>
             </ul>
         </nav>
     </div>

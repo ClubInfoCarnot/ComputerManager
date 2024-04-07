@@ -1,0 +1,76 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 99%;
+}
+
+.login-h1 {
+    font-weight: bold;
+    align-self: center;
+}
+
+.login-section {
+    width: 20%;
+    height: 50%;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow:  -16px 16px 30px #b8b8b8,
+                16px -16px 30px #ffffff;
+}
+
+.login-section > form {
+    width: 80%;
+}
+
+.login-section, .login-section > form, .login-username-div, .login-password-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: right;
+}
+
+form {
+    align-self: center;
+    color: #000;
+}
+
+.login-username-div, .login-password-div {
+    margin: 30px;
+}
+
+.login-submit {
+    width: 150px;
+    margin: 25px;
+    padding: 10px;
+    align-self: center;
+}
+
+label {
+    font-size: small;
+}
+
+input[type=password], input[type=text], textarea {
+    padding: 7px;
+    border-color: #000;
+    border-width: 0 0 2px 0;
+    border-radius: 1px;
+    background-color: transparent;
+}
+
+input:focus, input:active {
+    outline: none;
+}
+
+.login-submit {
+    border-radius: 4px;
+    background: #ffffff;
+    box-shadow: inset -5px 5px 12px #e0e0e0,
+                inset 5px -5px 12px #ffffff;
+    border: none;
+}
