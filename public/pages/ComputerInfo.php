@@ -15,56 +15,56 @@ $computer->getComputerByUUID($_GET['uuid']);
     <div class="computer-info-content">
         <table class="computer-info-table">
             <tr>
-                <th scope="col">Specifications</th>
-                <th scope="col" style="text-align: center;">Values</th>
+                <th scope="col">Spécificitées</th>
+                <th scope="col" style="text-align: center;">Valeurs</th>
             </tr>
             <tr>
-                <th scope="row">Database UUID</th>
+                <th scope="row">UUID</th>
                 <td><?php
                     echo $computer->uuid;
                     ?></td>
             </tr>
             <tr>
-                <th scope="row">Brand</th>
+                <th scope="row">Marque</th>
                 <td><?php
                     echo $computer->brand;
                     ?></td>
                 </td>
             </tr>
             <tr>
-                <th scope="row">Model</th>
+                <th scope="row">Modèle</th>
                 <td><?php
                     echo $computer->model;
                     ?></td>
             </tr>
             <tr>
-                <th scope="row">Serial Number</th>
+                <th scope="row">N° de série</th>
                 <td><?php
                     echo $computer->serialNumber;
                     ?></td>
             </tr>
             <tr>
-                <th scope="row">Mac Address</th>
+                <th scope="row">Adresse MAC</th>
                 <td><?php
                     echo $computer->macAddress;
                     ?></td>
             </tr>
             <tr>
-                <th scope="row">Arrival</th>
+                <th scope="row">Arrivée</th>
                 <td><?php
                     echo $computer->entryDate;
                     ?></td>
             </tr>
             <tr >
-                <th scope="row">Leaving</th>
+                <th scope="row">Départ</th>
                 <td>Not implemented</td>
             </tr>
             <tr>
-                <th scope="row">Recipient</th>
+                <th scope="row">Destinataire</th>
                 <td>Not implemented</td>
             </tr>
             <tr>
-                <th scope="row">State</th>
+                <th scope="row">Status</th>
                 <?php 
                 if ($computer->state->visualName == "Fait") {
                     $state = "<p class=\"done\">Fait<p></td>";
@@ -78,14 +78,14 @@ $computer->getComputerByUUID($_GET['uuid']);
                 ?>
             </tr>
         </table>
-        <p class="qr-text">Computer's QRCode:</p>
+        <p class="qr-text">QRCode de l'ordinateur:</p>
         <?php
         use chillerlan\QRCode\QRCode;
         $qrcode = new QRCode;
         $render = $qrcode->render($computer->uuid);
         echo '<img class="qr-img" src='.$render.' width="200" height="200">';
         ?>
-        <a href="img/qr-code.png" download>Download the QRCode</a>
+        <a href="img/qr-code.png" download>Télécharger le QRCode</a>
     </div>
 </section>
 
