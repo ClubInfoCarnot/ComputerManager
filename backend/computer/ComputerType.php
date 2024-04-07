@@ -7,7 +7,6 @@ if (!function_exists('getCon')) {
 class ComputerType
 {
     private $dbData = array();
-
     public $id = 0;
     public $visualName = "";
 

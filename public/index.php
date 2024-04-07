@@ -28,19 +28,7 @@ else if (strpos($request, "/computers") === 0) {
 } else if (strpos($request, "/css") === 0) {
     include 'css/style.css';
     include 'css/nav.css';
-} else if (strpos($request, "/beta") === 0) {
-    include '../backend/computer/Computer.php';
-    if (!class_exists("State")) {
-        include '../backend/state/State.php';
-    }
-    $computer = new Computer();
-    $computer->getComputerByUUID($_GET['uuid']);
-    $state = new State();
-    $state->getState(intval($_GET['id']));
-    echo $state->visualName;
-    $computer->setState($state);
-}
-else {
+} else {
     include 'pages/404.php';
     echo exec('pages/404.php');
 }

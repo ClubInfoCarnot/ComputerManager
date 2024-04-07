@@ -9,8 +9,6 @@ class State
     private $dbData = array();
     public $id = 0;
     public $visualName = "";
-    public $deleted = "";
-
 
     function getState($id) {
         $pdo = getCon();
@@ -24,7 +22,6 @@ class State
         foreach ($this->dbData as $row) {
             $this->id = $row['id'];
             $this->visualName = $row['visual-name'];
-            $this->deleted = $row['deleted'];
         }
     }
 
