@@ -39,15 +39,18 @@ a:hover:before {
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+.nav-h2 {
+    width: 30%;
     text-align: center;
 }
 
-.nav-left-div {
-    width: 30%;
+.nav-right-div {
+    width: 70%;
 }
 
 .nav-right-div > nav {
-    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,8 +1,6 @@
 <link rel="stylesheet" href="css/nav.css">
 <section class="nav-section">
-    <div class="nav-left-div">
-        <h2 class="nav-h2">Computer Manager</h2>
-    </div>
+    <h2 class="nav-h2">Computer Manager</h2>
     <div class="nav-right-div">
         <nav>
             <ul>
