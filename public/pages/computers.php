@@ -64,7 +64,7 @@
                         <td>".$computer->entryDate."</td>
                         <td>JJ-MM-AAAA</td>
                         <td>Pas implémenté</td>
-                        <td class=\"status\"><p class=\"done\">Done<p></td>
+                        <td class=\"status\">".$state."</td>
                     </tr>";
             }
             
