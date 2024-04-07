@@ -15,7 +15,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 -- Listage de la structure de la table computer-manager. computer-inventory
-DROP TABLE IF EXISTS `computer-inventory`;
 CREATE TABLE IF NOT EXISTS `computer-inventory` (
   `uuid` varchar(64) DEFAULT NULL,
   `type` varchar(50) DEFAULT NULL,
@@ -33,7 +32,6 @@ INSERT INTO `computer-inventory` (`uuid`, `type`, `brand`, `model`, `serial-numb
 	('b4fd8a8e-1932-457a-b835-e1df77028f73', '1', 'MSI', 'G41M-P25', '1234', '8C:89:A5:5A:C9:61', '1712415612', '1');
 
 -- Listage de la structure de la table computer-manager. computer-type
-DROP TABLE IF EXISTS `computer-type`;
 CREATE TABLE IF NOT EXISTS `computer-type` (
   `id` varchar(50) DEFAULT NULL,
   `visual-name` varchar(50) DEFAULT NULL
@@ -46,7 +44,6 @@ INSERT INTO `computer-type` (`id`, `visual-name`) VALUES
 	('2', 'Ordinateur de Bureau');
 
 -- Listage de la structure de la table computer-manager. state
-DROP TABLE IF EXISTS `state`;
 CREATE TABLE IF NOT EXISTS `state` (
   `id` varchar(50) DEFAULT NULL,
   `visual-name` varchar(50) DEFAULT NULL,
