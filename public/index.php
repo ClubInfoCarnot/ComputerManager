@@ -11,14 +11,15 @@ date_default_timezone_set($_ENV['TIMEZONE']);
 
 $request = $_SERVER["REQUEST_URI"];
 
-if (strpos($request, "/computer") === 0) {
-    include("pages/nav.php");
-    include 'pages/computers.php';
-    echo exec('pages/computers.php');
-} else if (strpos($request, "/computer-info") === 0) {
+if (strpos($request, "/computer-info") === 0) {
     include("pages/nav.php");
     include 'pages/ComputerInfo.php';
     echo exec('pages/ComputerInfo.php');
+}
+else if (strpos($request, "/computers") === 0) {
+    include("pages/nav.php");
+    include 'pages/computers.php';
+    echo exec('pages/computers.php');
 } else if (strpos($request, "/home") === 0) {
     include("pages/nav.php");
 } else if (strpos($request, "/login") === 0) {
@@ -28,5 +29,6 @@ if (strpos($request, "/computer") === 0) {
     include 'css/style.css';
     include 'css/nav.css';
 } else {
-    echo '404 Not Found';
+    include 'pages/404.php';
+    echo exec('pages/404.php');
 }
