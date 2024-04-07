@@ -69,7 +69,12 @@ $computer->getComputerByUUID($_GET['uuid']);
             </tr>
         </table>
         <p class="qr-text">Computer's QRCode:</p>
-        <img class="qr-img" src="img/qr-code.png">
+        <?php
+        use chillerlan\QRCode\QRCode;
+        $qrcode = new QRCode;
+        $render = $qrcode->render($computer->uuid);
+        echo '<img class="qr-img" src='.$render.' width="200" height="200">';
+        ?>
         <a href="img/qr-code.png" download>Download the QRCode</a>
     </div>
 </section>
