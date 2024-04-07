@@ -65,7 +65,17 @@ $computer->getComputerByUUID($_GET['uuid']);
             </tr>
             <tr>
                 <th scope="row">State</th>
-                <td class="status" id="status"><p class="done">Done<p></td>
+                <?php 
+                if ($computer->state->visualName == "Fait") {
+                    $state = "<p class=\"done\">Fait<p></td>";
+                } else if ($computer->state->visualName == "Nettoyage") {
+                    $state = "<p class=\"in-progress\">Nettoyage<p></td>";
+                } else {
+                    $state = "<p class=\"waiting\">En attente<p></td>";
+                }
+
+                echo "<td class=\"status\">".$state."</td>";
+                ?>
             </tr>
         </table>
         <p class="qr-text">Computer's QRCode:</p>
