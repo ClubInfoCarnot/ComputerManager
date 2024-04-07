@@ -9,8 +9,6 @@
 </head>
 <body>
 
-    <?php include("pages/nav.php") ?>
-
     <section class="research">
         <h2 class="research-h2">Recherche</h2>
         <div class="research-div">

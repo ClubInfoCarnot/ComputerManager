@@ -1,3 +1,14 @@
+<?php
+if (!class_exists("Computer")) {
+    include '../backend/computer/Computer.php';
+}
+if (!class_exists("State")) {
+    include '../backend/state/State.php';
+}
+$computer = new Computer();
+$computer->getComputerByUUID($_GET['uuid']);
+?>
+
 <link rel="stylesheet" href="css/computer_info.css">
 <section class="computer-info-section">
     <h2 class="computer-info-h2">Computer Informations:</h2>
@@ -5,39 +16,52 @@
         <table class="computer-info-table">
             <tr>
                 <th scope="col">Specifications</th>
-                <th scope="col" style="text-align: center;" onclick="alert('Good !')">Values</th>
+                <th scope="col" style="text-align: center;">Values</th>
             </tr>
             <tr>
                 <th scope="row">Database UUID</th>
-                <td id="uuid">UUID-UUID-UUID-UUID-UUID</td>
+                <td><?php
+                    echo $computer->uuid;
+                    ?></td>
             </tr>
             <tr>
                 <th scope="row">Brand</th>
-                <td id="brand">NewSoftBrandExemple</td>
+                <td><?php
+                    echo $computer->brand;
+                    ?></td>
+                </td>
             </tr>
             <tr>
                 <th scope="row">Model</th>
-                <td id="model">MyFavoriteModel</td>
+                <td><?php
+                    echo $computer->model;
+                    ?></td>
             </tr>
             <tr>
                 <th scope="row">Serial Number</th>
-                <td id="serial-number">687319613216123401260</td>
+                <td><?php
+                    echo $computer->serialNumber;
+                    ?></td>
             </tr>
             <tr>
                 <th scope="row">Mac Address</th>
-                <td id="mac-addr">6E:DA:78:4S:GL</td>
+                <td><?php
+                    echo $computer->macAddress;
+                    ?></td>
             </tr>
             <tr>
                 <th scope="row">Arrival</th>
-                <td id="arrival">JJ-MM-AAAA</td>
+                <td><?php
+                    echo $computer->entryDate;
+                    ?></td>
             </tr>
             <tr >
                 <th scope="row">Leaving</th>
-                <td id="leaving">JJ-MM-AAAA</td>
+                <td>Not implemented</td>
             </tr>
             <tr>
                 <th scope="row">Recipient</th>
-                <td id="recipient">ARandomSchool</td>
+                <td>Not implemented</td>
             </tr>
             <tr>
                 <th scope="row">State</th>

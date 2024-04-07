@@ -9,7 +9,7 @@
                 <li><a href="/">Home</a></li>
             </ul>
             <ul>
-                <li><a href="pages/computers.php">Computers</a></li>
+                <li><a href="/computer">Computers</a></li>
             </ul>
             <ul>
                 <li><a href="#">Database</a></li>

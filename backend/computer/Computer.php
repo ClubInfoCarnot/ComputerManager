@@ -1,13 +1,13 @@
 <?php
 
 if (!class_exists("State")) {
-    include 'backend/state/State.php';
+    include '../backend/state/State.php';
 }
 if (!function_exists('getCon')) {
-    include 'backend/database/Connection.php';
+    include '../backend/database/Connection.php';
 }
 if (!class_exists("ComputerType")) {
-    include 'backend/computer/ComputerType.php';
+    include '../backend/computer/ComputerType.php';
 }
 
 use chillerlan\QRCode\QRCode;
