@@ -17,8 +17,10 @@
 - Évènements:
     - Ajouter des évènements
 
+- Mentions légales
+
 ## BACK
 - Sys de destinataire
+- Toutes les fonctions pour ajouter des éléments dans la base de données
 - Recherche avancée dans la BDD
 - Connexion
-- Mentions légales
