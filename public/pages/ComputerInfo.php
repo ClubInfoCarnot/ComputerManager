@@ -6,7 +6,7 @@ if (!class_exists("State")) {
     include '../backend/state/State.php';
 }
 $computer = new Computer();
-$computer->getComputerByUUID($_GET['uuid']);
+$computer->getComputerByID($_GET['id']);
 ?>
 
 <link rel="stylesheet" href="css/computer_info.css">
@@ -19,9 +19,9 @@ $computer->getComputerByUUID($_GET['uuid']);
                 <th scope="col" style="text-align: center;">Valeurs</th>
             </tr>
             <tr>
-                <th scope="row">UUID</th>
+                <th scope="row">ID</th>
                 <td><?php
-                    echo $computer->uuid;
+                    echo $computer->id;
                     ?></td>
             </tr>
             <tr>
@@ -84,7 +84,7 @@ $computer->getComputerByUUID($_GET['uuid']);
         <?php
         use chillerlan\QRCode\QRCode;
         $qrcode = new QRCode;
-        $render = $qrcode->render($computer->uuid);
+        $render = $qrcode->render($_ENV['APP_URL']."/computer-info?uuid=".$computer->id);
         echo '<img class="qr-img" src='.$render.' width="200" height="200">';
         ?>
         <a href="img/qr-code.png" download>Télécharger le QRCode</a>

@@ -15,7 +15,7 @@ use chillerlan\QRCode\QRCode;
 class Computer
 {
     private $dbData = array();
-    public $uuid = "";
+    public $id = "";
     public $brand = "";
     public $model = "";
     public $serialNumber = "";
@@ -27,7 +27,6 @@ class Computer
     public $entryDate = "";
     public $exitDate = "";
 
-    public $qrCode = "";
 
     function getComputerBySerialNumber($serialNumber, $limit = 1000) {
         $pdo = getCon();
@@ -37,17 +36,17 @@ class Computer
         $this->setComputerData();
     }
 
-    function getComputerByUUID($uuid, $limit = 1000) {
+    function getComputerByID($id, $limit = 1000) {
         $pdo = getCon();
         $pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
-        $result = $pdo->query("SELECT * FROM `computer-inventory` WHERE `uuid`='$uuid' LIMIT $limit");
+        $result = $pdo->query("SELECT * FROM `computer-inventory` WHERE `id`=$id LIMIT $limit");
         $this->dbData = $result;
         $this->setComputerData();
     }
 
     private function setComputerData() {
         foreach ($this->dbData as $row) {
-            $this->uuid = $row['uuid'];
+            $this->id = $row['id'];
             $this->brand = $row['brand'];
             $this->model = $row['model'];
             $this->serialNumber = $row['serial-number'];
