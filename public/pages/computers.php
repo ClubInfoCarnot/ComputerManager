@@ -21,7 +21,7 @@
         <table class="computer-result-table">
             <tr>
                 <th scope="col">N° de série</th>
-                <th scope="col">UUID</th>
+                <th scope="col">ID</th>
                 <th scope="col">Marque</th>
                 <th scope="col">Modèle</th>
                 <th scope="col">Adresse MAC</th>
@@ -40,11 +40,11 @@
 
             $pdo = getCon();
             $pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
-            $uuids = $pdo->query("SELECT `uuid` FROM `computer-inventory`");
+            $ids = $pdo->query("SELECT `id` FROM `computer-inventory`");
             
-            foreach ($uuids as $uuid) {
+            foreach ($ids as $id) {
                 $computer = new Computer();
-                $computer->getComputerByUUID($uuid[0]);
+                $computer->getComputerByID($id[0]);
                 $state = null;
 
                 if ($computer->state->visualName == "Fait") {
@@ -57,7 +57,7 @@
 
                 echo "<tr>
                         <th scope=\"row\">".$computer->serialNumber."</th>
-                        <td>".$uuid[0]."</td>
+                        <td>".$id[0]."</td>
                         <td>".$computer->brand."</td>
                         <td>".$computer->model."</td>
                         <td>".$computer->macAddress."</td>

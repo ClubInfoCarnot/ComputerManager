@@ -10,8 +10,6 @@ if (!class_exists("ComputerType")) {
     include '../backend/computer/ComputerType.php';
 }
 
-use chillerlan\QRCode\QRCode;
-
 class Computer
 {
     private $dbData = array();
@@ -66,8 +64,8 @@ class Computer
         $pdo = getCon();
         $pdo->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, false);
         $pdo->beginTransaction();
-        $stmt = $pdo->prepare("UPDATE `computer-inventory` SET `state`=? WHERE `uuid`=?");
-        $stmt->execute(array($state->id, $this->uuid));
+        $stmt = $pdo->prepare("UPDATE `computer-inventory` SET `state`=? WHERE `id`=?");
+        $stmt->execute(array($state->id, $this->id));
         $pdo->commit();
         $this->state = $state;
         echo "OKK";
