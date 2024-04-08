@@ -20,8 +20,8 @@
     <section class="result">
         <table class="computer-result-table">
             <tr>
-                <th scope="col">N° de série</th>
                 <th scope="col">ID</th>
+                <th scope="col">N° de série</th>
                 <th scope="col">Marque</th>
                 <th scope="col">Modèle</th>
                 <th scope="col">Adresse MAC</th>
@@ -56,8 +56,8 @@
                 }
 
                 echo "<tr>
-                        <th scope=\"row\">".$computer->serialNumber."</th>
-                        <td>".$id[0]."</td>
+                        <th scope=\"row\">".$computer->id."</th>
+                        <td>".$computer->serialNumber."</td>
                         <td>".$computer->brand."</td>
                         <td>".$computer->model."</td>
                         <td>".$computer->macAddress."</td>

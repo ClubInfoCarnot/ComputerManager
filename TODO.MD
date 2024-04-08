@@ -6,6 +6,7 @@
 - Ordinateurs:
     - Options de recherche: Les 5 premiers critères
     - Ajouter un ordinateur
+    - Centrer les valeurs de la première ligne dans le tableau présent au `/computers`
 
 - BDD:
     - Voir les tables:
