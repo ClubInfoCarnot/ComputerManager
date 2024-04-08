@@ -84,7 +84,7 @@ $computer->getComputerByID($_GET['id']);
         <?php
         use chillerlan\QRCode\QRCode;
         $qrcode = new QRCode;
-        $render = $qrcode->render($_ENV['APP_URL']."/computer-info?uuid=".$computer->id);
+        $render = $qrcode->render($_ENV['APP_URL']."/computer-info?id=".$computer->id);
         echo '<img class="qr-img" src='.$render.' width="200" height="200">';
         ?>
         <a href="img/qr-code.png" download>Télécharger le QRCode</a>
