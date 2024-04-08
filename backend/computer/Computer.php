@@ -9,11 +9,14 @@ if (!function_exists('getCon')) {
 if (!class_exists("ComputerType")) {
     include '../backend/computer/ComputerType.php';
 }
+if (!class_exists("Recipient")) {
+    include '../backend/recipient/Recipient.php';
+}
 
 class Computer
 {
     private $dbData = array();
-    public $id = "";
+    public $id = 0;
     public $brand = "";
     public $model = "";
     public $serialNumber = "";
@@ -24,6 +27,7 @@ class Computer
     public ?ComputerType $type = null;
     public $entryDate = "";
     public $exitDate = "";
+    public ?Recipient $recipient = null;
 
 
     function getComputerBySerialNumber($serialNumber, $limit = 1000) {
@@ -57,6 +61,9 @@ class Computer
             $this->type = $type;
             $this->entryDate = date("d-m-Y", intval($row['entry-date']));
             $this->exitDate = date("d-m-Y", intval($row['leave-date']));
+            $recipient = new Recipient();
+            $recipient->getRecipientByID($row['recipient']);
+            $this->recipient = $recipient;
         }
     }
 

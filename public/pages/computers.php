@@ -63,7 +63,7 @@
                         <td>".$computer->macAddress."</td>
                         <td>".$computer->entryDate."</td>
                         <td>".$computer->exitDate."</td>
-                        <td>Pas implémenté</td>
+                        <td>".$computer->recipient->name."</td>
                         <td class=\"status\">".$state."</td>
                     </tr>";
             }

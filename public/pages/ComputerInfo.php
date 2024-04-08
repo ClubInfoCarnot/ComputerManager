@@ -63,7 +63,9 @@ $computer->getComputerByID($_GET['id']);
             </tr>
             <tr>
                 <th scope="row">Destinataire</th>
-                <td>Not implemented</td>
+                <td><?php
+                    echo $computer->recipient->name;
+                    ?></td>
             </tr>
             <tr>
                 <th scope="row">Status</th>
